@@ -1,17 +1,21 @@
 pipeline {
-    agent any
+    agent none
     
     stages {
-        stage('building') {
+        stage('this is a building stage') {
+            agent {
+                docker {
+                    image 'alpine:3.4'
+                    
+                }
+            }
             steps {
-                echo 'building stage'
-            }    
-        }
-        stage('testing') {
-            steps {
-                echo 'testing stage'
+                sh '''
+                apk update
+                '''
             }
         }
-    } 
-    
-}
+        }
+        
+    }
+

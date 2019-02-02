@@ -20,30 +20,32 @@ pipeline {
 	            steps {
 	                echo "hey maurice"
 	            }
-		}
-	        stage('parallel testing and integration') {
-	            parallel {
-	                stage ('unit testing') {
-	                    steps {
-	                        echo 'running unit test'
-	                    }
-	                }
-	        }
-		    
-	                stage ('Integration testing') {
-	                    agent {
-	                        docker {
-	                            reuseNode false
-	                            image 'alpine:3.4'
+		}   
+		    stage('parallel unit and integration testing') {
+		        parallel {
+		            stage('Test on my slave') {
+		                agent {
+		                    label "slave-01"
+		                }
+		                steps {
+		                    echo 'This is my ubuntu slave node'
+		                }
+		            }
 
-	                        }
-	                    }
-	                    steps {
-	                        echo 'running the integration test'
-	                    }
-	                }
+		            stage('Test on a docker container') {
+		                agent {
+		                    docker {
+		                        image 'alpine:3.4'
 
-	                }
+		                    }
+		                }
+		                steps {
+		                    echo 'im in the alpine machine'
+		                }
+		            }
+
+		        }
+		    }
 
 	            }    
 	            }

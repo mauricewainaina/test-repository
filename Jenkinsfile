@@ -10,6 +10,7 @@ pipeline {
 	            steps {
 	                input('Click proceed to continue: ')
 	            }
+		}
 	        stage('Q&A') {
 	            when {
 	                not {
@@ -19,6 +20,7 @@ pipeline {
 	            steps {
 	                echo "hey maurice"
 	            }
+		}
 	        stage('parallel testing and integration')
 	            parallel {
 	                stage ('unit testing') {
@@ -26,6 +28,7 @@ pipeline {
 	                        echo 'running unit test'
 	                    }
 	                }
+		    }
 	                stage ('Integration testing') {
 	                    agent {
 	                        docker {

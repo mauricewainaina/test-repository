@@ -21,14 +21,15 @@ pipeline {
 	                echo "hey maurice"
 	            }
 		}
-	        stage('parallel testing and integration')
+	        stage('parallel testing and integration') {
 	            parallel {
 	                stage ('unit testing') {
 	                    steps {
 	                        echo 'running unit test'
 	                    }
 	                }
-		    }
+	        }
+		    
 	                stage ('Integration testing') {
 	                    agent {
 	                        docker {
@@ -40,6 +41,8 @@ pipeline {
 	                    steps {
 	                        echo 'running the integration test'
 	                    }
+	                }
+
 	                }
 
 	            }    

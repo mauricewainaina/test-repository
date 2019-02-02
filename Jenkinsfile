@@ -1,15 +1,15 @@
 pipeline {
 	agent any
 	stages {
-	    stage ('building stage') {
+	    stage('building stage') {
 	        steps {
 	            echo 'this is an example of a building stage'
 	        }
-	    stage ('Testing stage') {
+	    stage('Testing stage') {
 	        steps {
 	            input('Click proceed to continue: ')
 	        }
-	    stage ('Q&A') {
+	    stage('Q&A') {
 	        when {
 	            not {
 	                branch 'master'
@@ -18,14 +18,14 @@ pipeline {
 	        steps {
 	            echo "hey maurice"
 	        }
-	    stage ('parallel testing and integration')
+	    stage('parallel testing and integration')
 	        parallel {
 	            stage ('unit testing') {
 	                steps {
 	                    echo 'running unit test'
 	                }
 	            }
-	            stage ('Integration testing') {
+	            stage('Integration testing') {
 	                agent {
 	                    docker {
 	                        reuseNode false

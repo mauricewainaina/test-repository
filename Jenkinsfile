@@ -13,17 +13,5 @@ pipeline {
 
 	        }
 	    }
-	    stage('this is a test stage') {
-	        agent {
-	            docker {
-	                image 'alpine:3.4'
-	            }
-	        }
-	        steps {
-	            sh '''
-	            echo 'this is inside the alpine container'
-	            '''
-	        }
-	    }
 	}
 }

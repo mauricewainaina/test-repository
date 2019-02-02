@@ -5,6 +5,7 @@ pipeline {
 	            steps {
 	                echo 'this is an example of a building stage'
 	            }
+		}
 	        stage('Testing stage') {
 	            steps {
 	                input('Click proceed to continue: ')

@@ -2,7 +2,6 @@ pipeline {
 	agent any
 	stages {
 	    stage('this is a build  stage')
-		agent any
 	        steps {
 	            sh '''
 	            apt update

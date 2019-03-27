@@ -4,7 +4,7 @@ pipeline {
 		stage ('build') {
 			steps {
 				sh '''
-				apt-get update
+				uname -a
 				'''
 			}
 		}

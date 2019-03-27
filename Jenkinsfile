@@ -2,9 +2,9 @@ pipeline {
 	agent any
 	stages {
 		stage ('build') {
-			step {
+			steps {
 				sh '''
-				java -version
+				apt-get update
 				'''
 			}
 		}

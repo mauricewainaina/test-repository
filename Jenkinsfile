@@ -4,7 +4,7 @@ pipeline {
 		stage ('build') {
 			steps {
 				sh '''
-				ls -l
+				uname -a
 				'''
 			}
 		}
